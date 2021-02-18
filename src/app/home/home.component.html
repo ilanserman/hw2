@@ -1,0 +1,58 @@
+<div class="container p-3">
+  <div class="row">
+    <div class="col col-lg-4">
+      <label for="img-url" class="form-label">URL de imagen</label>
+      <input
+      id="img-url"
+      class="form-control form-control-sm"
+      type="url"
+      [formControl]="imageForm"
+      >
+    </div>
+  </div>
+  <div class="row">
+    <div class="col col-lg-2">
+      <button type="button" class="btn btn-primary" (click)="loadImageFromUrl()">Cargar imagen</button>
+    </div>
+  </div>
+</div>
+
+<div class="row justify-content-center">
+  <div class="col-md-auto">
+    <div class="canvas-container">
+      <canvas id="canvas" width="500" height="500"></canvas>
+    </div>
+  </div>
+  <div class="col-auto col-lg-3">
+    <div class="row">
+      <div class="col-lg-3">
+        <p><button type="button" class="btn btn-secondary" (click)="removeElement()"><i-bs name="trash"></i-bs></button></p>
+        <p><button type="button" class="btn btn-secondary" (click)="addRect()"><i-bs name="bounding-box"></i-bs></button></p>
+        <p><button type="button" class="btn btn-secondary" (click)="saveAsImg()"><i-bs name="save"></i-bs></button></p>
+        <p>
+          <label for="canvas-height" class="form-label">Alto</label>
+          <input
+              id="canvas-height"
+              class="form-control form-control-sm"
+              type="number"
+              [formControl]="formCanvasHeight"
+          >
+        </p>
+        <p>
+          <label for="canvas-width" class="form-label">Ancho</label>
+          <input
+              id="canvas-width"
+              class="form-control form-control-sm"
+              type="number"
+              [formControl]="formCanvasWidth"
+          >
+        </p>
+        <p><button type="button" class="btn btn-secondary" (click)="changeCanvasDims()">Modificar Area</button></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="text-center">
+<img src="{{outputImgSrc}}">
+</div>
